@@ -1,0 +1,43 @@
+---
+title: "seAMLess"
+output: github_document
+---
+
+## Overview
+`seAMLess` is a wrapper function which deconvolutes bulk Acute Myeloid Leukemia (AML) RNA-seq samples with a healthy single cell reference atlas.
+
+![https://eonurk.github.io/cinaR/articles/cinaR.html](man/figures/Figure1-A.png)
+
+## Installation
+To get bug fix and use a feature from the development version: 
+```{r, eval=FALSE}
+# install.packages("devtools")
+devtools::install_github("eonurk/seAMLess")
+```
+
+## Usage
+```{r warning=FALSE}
+library(seAMLess)
+
+data(exampleTCGA)
+res <- seAMLess(exampleTCGA)
+
+# AML deconvolution
+head(res$Deconvolution)[,1:5]
+```
+```{r}
+# Venetoclax resistance
+res$Venetoclax.resistance[1:5]
+```
+
+
+## Contribution
+You can send pull requests to make your contributions.
+
+## Author
+
+- [E Onur Karakaslar](https://eonurk.github.io/)
+
+## License
+
+- GNU General Public License v3.0

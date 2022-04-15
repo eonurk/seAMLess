@@ -1,0 +1,21 @@
+Package: seAMLess
+Type: Package
+Title: Given a bulk transcriptomic (RNA-seq) sample of an AML patient calculates immune composition and drug resistance for different small-molecule inhibitors
+Version: 0.1.0
+Authors@R: 
+    c(person(given = "E Onur",
+             family = "Karakaslar",
+             role = c("aut", "cre"),
+             email = "eonurkara@gmail.com"
+            )
+     )
+Maintainer: The package maintainer <yourself@somewhere.net>
+Depends: R (>= 3.5.0)
+Imports: xbioc, 
+         MuSiC,
+         randomForest
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
