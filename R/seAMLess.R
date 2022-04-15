@@ -9,8 +9,9 @@
 
 seAMLess <- function(mat, verbose = TRUE) {
 
-    suppressMessages(require(xbioc))
-    suppressMessages(require(randomForest))
+    requireNamespace("xbioc", quietly = T)
+    requireNamespace("randomForest", quietly = T)
+
     # Printing function
     verbosePrint <- verboseFn(verbose)
 
