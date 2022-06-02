@@ -13,7 +13,9 @@ Maintainer: The package maintainer <yourself@somewhere.net>
 Depends: R (>= 3.5.0)
 Imports: xbioc, 
          MuSiC,
-         randomForest
+         randomForest,
+         ggplot2,
+         ggtern
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: GPL-3

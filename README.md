@@ -22,8 +22,22 @@ devtools::install_github("eonurk/seAMLess")
 
 ``` r
 library(seAMLess)
+library(xbioc) # required
 
 data(exampleTCGA)
+head(exampleTCGA)[,1:4]
+```
+
+    ##                    X TCGA.AB.2856.03A TCGA.AB.2849.03A TCGA.AB.2971.03A
+    ## 1 ENSG00000000003.13                7                9                1
+    ## 2  ENSG00000000005.5                0                1                0
+    ## 3 ENSG00000000419.11              689              661              555
+    ## 4 ENSG00000000457.12              633             1434              855
+    ## 5 ENSG00000000460.15              372             1211              519
+    ## 6 ENSG00000000938.11            14712              405             6076
+
+``` r
+# Now run the function
 res <- seAMLess(exampleTCGA)
 ```
 
@@ -39,26 +53,31 @@ res <- seAMLess(exampleTCGA)
 
 ``` r
 # AML deconvolution
-head(res$Deconvolution)[,1:5]
+head(res$Deconvolution)[,1:4]
 ```
 
-    ##                  CD14 Mono       GMP     T Cells      pre B       LMPP
-    ## TCGA.AB.2856.03A 0.1495886 0.7079107 0.022868623 0.00000000 0.00000000
-    ## TCGA.AB.2849.03A 0.0000000 0.0000000 0.000000000 0.00000000 0.01544562
-    ## TCGA.AB.2971.03A 0.5494418 0.4462562 0.002898678 0.00000000 0.00000000
-    ## TCGA.AB.2930.03A 0.0000000 0.4698555 0.000000000 0.00000000 0.18026732
-    ## TCGA.AB.2891.03A 0.0000000 0.6189622 0.018645484 0.01384012 0.00000000
-    ## TCGA.AB.2872.03A 0.0000000 0.9950150 0.000000000 0.00000000 0.00000000
+    ##                  CD14 Mono       GMP     T Cells      pre B
+    ## TCGA.AB.2856.03A 0.1495886 0.7079107 0.022868623 0.00000000
+    ## TCGA.AB.2849.03A 0.0000000 0.0000000 0.000000000 0.00000000
+    ## TCGA.AB.2971.03A 0.5494418 0.4462562 0.002898678 0.00000000
+    ## TCGA.AB.2930.03A 0.0000000 0.4698555 0.000000000 0.00000000
+    ## TCGA.AB.2891.03A 0.0000000 0.6189622 0.018645484 0.01384012
+    ## TCGA.AB.2872.03A 0.0000000 0.9950150 0.000000000 0.00000000
+
+``` r
+# Create ternary plot
+ternaryPlot(res)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 # Venetoclax resistance
-res$Venetoclax.resistance[1:5]
+res$Venetoclax.resistance[1:4]
 ```
 
     ## TCGA.AB.2856.03A TCGA.AB.2849.03A TCGA.AB.2971.03A TCGA.AB.2930.03A 
-    ##        0.5070113        0.3242576        0.6678995        0.3305996 
-    ## TCGA.AB.2891.03A 
-    ##        0.3472052
+    ##        0.5070113        0.3242576        0.6678995        0.3305996
 
 ## Contribution
 
