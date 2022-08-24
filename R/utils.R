@@ -1,5 +1,5 @@
 #' removes ERCC peaks and duplicated genes
-#'
+#' @param mat pre-filters and orders bulk rna-seq data
 #' @export
 wrangleMat <- function(mat){
 

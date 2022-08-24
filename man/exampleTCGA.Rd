@@ -5,7 +5,7 @@
 \alias{exampleTCGA}
 \title{TCGA-LAML example data}
 \format{
-An object of class \code{data.frame} with 60483 rows and 10 columns.
+An object of class \code{data.frame} with 60483 rows and 21 columns.
 }
 \usage{
 data(exampleTCGA)

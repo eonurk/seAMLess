@@ -5,7 +5,7 @@
 \alias{exampleTCGAmeta}
 \title{TCGA-LAML example data meta file}
 \format{
-An object of class \code{data.frame} with 9 rows and 35 columns.
+An object of class \code{data.frame} with 20 rows and 34 columns.
 }
 \usage{
 data(exampleTCGAmeta)

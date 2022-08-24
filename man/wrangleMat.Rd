@@ -6,6 +6,9 @@
 \usage{
 wrangleMat(mat)
 }
+\arguments{
+\item{mat}{pre-filters and orders bulk rna-seq data}
+}
 \description{
 removes ERCC peaks and duplicated genes
 }

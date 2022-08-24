@@ -7,6 +7,9 @@
 
 ternaryPlot <- function(res) {
 
+    # CRAN note check
+    B.cells <- Myeloid.cells <- T.Cells <- NULL
+
     ics <- res$Deconvolution
     myeloid.cell.type <- c("CD14 Mono", "GMP", "LMPP",  "Early Eryth","EMP","Late Eryth","pDC",
                            "CLP","HSC", "cDC", "BaEoMa", "Prog Mk","pre-pDC" , "pre-mDC","CD16 Mono","ASDC")
@@ -14,13 +17,12 @@ ternaryPlot <- function(res) {
 
     ## Add TARGET AML P1
     data.gg <- data.frame(cbind(ics[,setdiff(colnames(ics),c(b.cells, myeloid.cell.type))],
-                                `B cells` = rowSums(ics[, b.cells]),
-                                `Myeloid cells` = rowSums(ics[, myeloid.cell.type])),
-                          check.names = F)
+                                B.cells = rowSums(ics[, b.cells]),
+                                Myeloid.cells = rowSums(ics[, myeloid.cell.type])))
 
 
     plot.ternary <-
-        ggtern::ggtern(data.gg, ggplot2::aes(x = `T Cells`, y= `Myeloid cells`, z= `B cells`)) +
+        ggtern::ggtern(data.gg, ggplot2::aes(x = T.Cells, y= Myeloid.cells, z= B.cells)) +
         ggplot2::geom_point(size  = 3) +
         ggplot2::labs(x = "T cells",y = "Myeloid cells",  z  = "B cells", color = "Primary Diagnosis")+
         ggplot2::theme_bw() +

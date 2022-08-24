@@ -42,3 +42,14 @@
 #' @keywords datasets
 #'
 "exampleTCGAmeta"
+
+#' Trained RF model on Venetoclax Resistance
+#'
+#' @docType data
+#'
+#' @usage data(venoModel)
+#'
+#' @keywords datasets
+#'
+"venoModel"
+
