@@ -4,12 +4,11 @@
 #'
 #' @param mat count matrix (genes by 1+samples).
 #' @param verbose prints detailed messages
-#' @return cell type percentages and predicted drug resistances
+#' @return List of deconvoluted cell type percentages and predicted drug resistances
 #' @export
 
 seAMLess <- function(mat, verbose = TRUE) {
 
-    requireNamespace("xbioc", quietly = T)
     requireNamespace("randomForest", quietly = T)
 
     # Printing function
@@ -37,13 +36,9 @@ seAMLess <- function(mat, verbose = TRUE) {
     # make mat suitable for MuSiC
     T.eset <- Biobase::ExpressionSet(assayData = as.matrix(mat))
 
-
-    # single cell reference
-    C.eset <- seAMLess::scRef
-
     verbosePrint(">> Deconvoluting samples...")
     # MusiC deconvolution
-    deconv <- MuSiC::music_prop(bulk.eset = T.eset, sc.eset = C.eset,
+    deconv <- MuSiC::music_prop(bulk.eset = T.eset, sc.eset = seAMLessData::scRef,
                                 clusters = 'label.new',
                                 markers = NULL, normalize = FALSE, samples = 'Sample',
                                 verbose = F)$Est.prop.weighted

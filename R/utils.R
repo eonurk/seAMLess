@@ -1,5 +1,15 @@
 #' removes ERCC peaks and duplicated genes
 #' @param mat pre-filters and orders bulk rna-seq data
+#'
+#' @examples
+#' \donttest{
+#' library(seAMLess)
+#'
+#' data("exampleTCGA")
+#'
+#' exampleTCGA <- wrangleMat(exampleTCGA)
+#' }
+#'
 #' @export
 wrangleMat <- function(mat){
 

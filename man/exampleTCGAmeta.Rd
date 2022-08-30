@@ -3,7 +3,7 @@
 \docType{data}
 \name{exampleTCGAmeta}
 \alias{exampleTCGAmeta}
-\title{TCGA-LAML example data meta file}
+\title{TCGA-LAML example data meta file downloaded from GDC}
 \format{
 An object of class \code{data.frame} with 20 rows and 34 columns.
 }
@@ -11,6 +11,6 @@ An object of class \code{data.frame} with 20 rows and 34 columns.
 data(exampleTCGAmeta)
 }
 \description{
-TCGA-LAML example data meta file
+TCGA-LAML example data meta file downloaded from GDC
 }
 \keyword{datasets}

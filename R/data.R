@@ -1,13 +1,3 @@
-#' Single cell obj for deconvolution
-#'
-#' @docType data
-#'
-#' @usage data(scRef)
-#'
-#' @examples
-#' data(scRef)
-"scRef"
-
 #' Grch38
 #'
 #' @docType data
@@ -20,24 +10,22 @@
 "grch38"
 
 
-#' TCGA-LAML example data
+#' TCGA-LAML bulk RNA-seq data downloaded from GDC
 #'
 #' @docType data
 #'
 #' @usage data(exampleTCGA)
-#'
 #'
 #' @keywords datasets
 #'
 "exampleTCGA"
 
 
-#' TCGA-LAML example data meta file
+#' TCGA-LAML example data meta file downloaded from GDC
 #'
 #' @docType data
 #'
 #' @usage data(exampleTCGAmeta)
-#'
 #'
 #' @keywords datasets
 #'

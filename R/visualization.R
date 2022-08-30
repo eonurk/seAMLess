@@ -4,7 +4,6 @@
 #' @param res seAMLess object.
 #' @return ggplot2 object
 #' @export
-
 ternaryPlot <- function(res) {
 
     # CRAN note check

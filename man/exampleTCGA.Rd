@@ -3,7 +3,7 @@
 \docType{data}
 \name{exampleTCGA}
 \alias{exampleTCGA}
-\title{TCGA-LAML example data}
+\title{TCGA-LAML bulk RNA-seq data downloaded from GDC}
 \format{
 An object of class \code{data.frame} with 60483 rows and 21 columns.
 }
@@ -11,6 +11,6 @@ An object of class \code{data.frame} with 60483 rows and 21 columns.
 data(exampleTCGA)
 }
 \description{
-TCGA-LAML example data
+TCGA-LAML bulk RNA-seq data downloaded from GDC
 }
 \keyword{datasets}

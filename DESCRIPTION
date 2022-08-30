@@ -1,7 +1,7 @@
 Package: seAMLess
 Type: Package
-Title: A single cell transcriptomics based deconvolution pipeline for Leukemia 
-Description: Given a bulk transcriptomic (RNA-seq) sample of an AML patient calculates immune composition and drug resistance for different small-molecule inhibitors
+Title: A Single Cell Transcriptomics Based Deconvolution Pipeline for Myeloid Leukemia
+Description: Given a bulk transcriptomic (RNA-seq) sample of an AML patient calculates immune composition and drug resistance for different small-molecule inhibitors.
 Version: 0.1.0
 Authors@R: 
     c(person(given = "E Onur",
@@ -12,13 +12,16 @@ Authors@R:
      )
 biocViews:
 Depends: R (>= 3.5.0)
-Imports: xbioc, 
-         MuSiC,
-         randomForest,
+Imports: Biobase,
          ggplot2,
-         ggtern
+         ggtern,
+         randomForest
+Suggest: xbioc, 
+         MuSiC,
+         seAMLessData
+Additional_repositories: https://eonurk.github.io/drat/
 URL: https://github.com/eonurk/seAMLess
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1

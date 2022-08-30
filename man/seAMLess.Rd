@@ -14,7 +14,7 @@ seAMLess(mat, verbose = TRUE)
 \item{verbose}{prints detailed messages}
 }
 \value{
-cell type percentages and predicted drug resistances
+List of deconvoluted cell type percentages and predicted drug resistances
 }
 \description{
 Given the count matrices of bulk-RNA samples, this function deconvolutes

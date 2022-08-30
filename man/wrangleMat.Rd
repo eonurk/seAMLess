@@ -12,3 +12,13 @@ wrangleMat(mat)
 \description{
 removes ERCC peaks and duplicated genes
 }
+\examples{
+\donttest{
+library(seAMLess)
+
+data("exampleTCGA")
+
+exampleTCGA <- wrangleMat(exampleTCGA)
+}
+
+}
