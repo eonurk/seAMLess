@@ -16,7 +16,7 @@ Imports: Biobase,
          ggplot2,
          ggtern,
          randomForest
-Suggest: xbioc, 
+Suggests: xbioc, 
          MuSiC,
          seAMLessData
 Additional_repositories: https://eonurk.github.io/drat/
