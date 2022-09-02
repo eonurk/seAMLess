@@ -2,14 +2,12 @@
 #' @param mat pre-filters and orders bulk rna-seq data
 #'
 #' @examples
-#' \donttest{
 #' library(seAMLess)
 #'
 #' data("exampleTCGA")
 #'
 #' exampleTCGA <- wrangleMat(exampleTCGA)
-#' }
-#'
+#' @return filtered and ordered count-matrix
 #' @export
 wrangleMat <- function(mat){
 
@@ -44,8 +42,17 @@ wrangleMat <- function(mat){
 #'
 #' returns a printing function to be used with in the script
 #' @param verbose boolean, determines whether the output going be printed or not
-#' @return print function
 #'
+#' @examples
+#' # Prints output
+#' verbosePrint <- verboseFn(TRUE)
+#' verbosePrint("Hello World!")
+#' # > "Hello World!"
+#'
+#' # Does not print
+#' verbosePrint <- verboseFn(FALSE)
+#' verbosePrint("Hello World!")
+#' @return print function
 #' @export
 verboseFn <- function(verbose){
     if(verbose){

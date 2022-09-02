@@ -4,6 +4,7 @@
 #'
 #' @param mat count matrix (genes by 1+samples).
 #' @param verbose prints detailed messages
+#'
 #' @return List of deconvoluted cell type percentages and predicted drug resistances
 #' @export
 

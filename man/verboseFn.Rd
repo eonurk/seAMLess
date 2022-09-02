@@ -15,3 +15,13 @@ print function
 \description{
 returns a printing function to be used with in the script
 }
+\examples{
+# Prints output
+verbosePrint <- verboseFn(TRUE)
+verbosePrint("Hello World!")
+# > "Hello World!"
+
+# Does not print
+verbosePrint <- verboseFn(FALSE)
+verbosePrint("Hello World!")
+}

@@ -2,6 +2,12 @@
 #' a ternary plot similar to ALOT tube from EuroFlow analysis and Figure 1E of our paper.
 #'
 #' @param res seAMLess object.
+#' @examples
+#' library(seAMLess)
+#'
+#' data(minRes)
+#' ternaryPlot(minRes)
+#'
 #' @return ggplot2 object
 #' @export
 ternaryPlot <- function(res) {

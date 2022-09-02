@@ -17,3 +17,10 @@ ggplot2 object
 Given the immune compositions (ICs) of bulk-RNA samples, this function creates
 a ternary plot similar to ALOT tube from EuroFlow analysis and Figure 1E of our paper.
 }
+\examples{
+library(seAMLess)
+
+data(minRes)
+ternaryPlot(minRes)
+
+}

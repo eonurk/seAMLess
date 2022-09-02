@@ -9,16 +9,16 @@ wrangleMat(mat)
 \arguments{
 \item{mat}{pre-filters and orders bulk rna-seq data}
 }
+\value{
+filtered and ordered count-matrix
+}
 \description{
 removes ERCC peaks and duplicated genes
 }
 \examples{
-\donttest{
 library(seAMLess)
 
 data("exampleTCGA")
 
 exampleTCGA <- wrangleMat(exampleTCGA)
-}
-
 }

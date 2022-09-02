@@ -1,7 +1,7 @@
 Package: seAMLess
 Type: Package
-Title: A Single Cell Transcriptomics Based Deconvolution Pipeline for Myeloid Leukemia
-Description: Given a bulk transcriptomic (RNA-seq) sample of an AML patient calculates immune composition and drug resistance for different small-molecule inhibitors.
+Title: A Single Cell Transcriptomics Based Deconvolution Pipeline for Leukemia
+Description: Given a bulk transcriptomic (RNA-seq) sample of an Myeloid Leukemia patient calculates immune composition and drug resistance for different small-molecule inhibitors.
 Version: 0.1.0
 Authors@R: 
     c(person(given = "E Onur",

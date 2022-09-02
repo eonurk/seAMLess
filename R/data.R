@@ -41,3 +41,14 @@
 #'
 "venoModel"
 
+#' A minimal seAMLess result list object
+#'
+#' @docType data
+#'
+#' @usage data(minRes)
+#'
+#'
+#' @keywords datasets
+#'
+"minRes"
+
