@@ -11,6 +11,13 @@ atlas.
 
 ## Installation
 
+``` r
+# CRAN mirror
+install.packages("seAMLess")
+```
+
+### Development version
+
 To get bug fix and use a feature from the development version:
 
 ``` r
@@ -69,7 +76,7 @@ head(res$Deconvolution)[,1:4]
 ternaryPlot(res)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 # Venetoclax resistance

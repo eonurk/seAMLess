@@ -9,6 +9,13 @@ output: github_document
 ![https://eonurk.github.io/cinaR/articles/cinaR.html](man/figures/Figure1-A.png)
 
 ## Installation
+
+```{r, eval=FALSE}
+# CRAN mirror
+install.packages("seAMLess")
+```
+
+### Development version
 To get bug fix and use a feature from the development version: 
 ```{r, eval=FALSE}
 # install.packages("devtools")
