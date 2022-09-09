@@ -11,6 +11,14 @@ atlas.
 
 ## Installation
 
+<!-- badges: start -->
+
+[![CRAN
+version](https://www.r-pkg.org/badges/version/seAMLess)](https://cran.r-project.org/package=seAMLess)
+[![CRAN
+download](https://cranlogs.r-pkg.org/badges/seAMLess?color=orange)](https://cran.r-project.org/package=seAMLess?color=orange)
+<!-- badges: end -->
+
 ``` r
 # CRAN mirror
 install.packages("seAMLess")
