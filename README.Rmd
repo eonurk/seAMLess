@@ -27,6 +27,16 @@ To get bug fix and use a feature from the development version:
 devtools::install_github("eonurk/seAMLess")
 ```
 
+### Bioconda
+
+![Bioconda version](https://anaconda.org/bioconda/r-seamless/badges/version.svg)
+![Bioconda download](https://anaconda.org/bioconda/r-seamless/badges/downloads.svg)
+
+`seAMLess` is also available in Bioconda and can be installed via:
+```{r, eval=FALSE}
+conda install -c bioconda r-seamless
+```
+
 ## Usage
 ```{r warning=FALSE, message=FALSE}
 library(seAMLess)

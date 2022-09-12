@@ -33,6 +33,19 @@ To get bug fix and use a feature from the development version:
 devtools::install_github("eonurk/seAMLess")
 ```
 
+### Bioconda
+
+![Bioconda
+version](https://anaconda.org/bioconda/r-seamless/badges/version.svg)
+![Bioconda
+download](https://anaconda.org/bioconda/r-seamless/badges/downloads.svg)
+
+`seAMLess` is also available in Bioconda and can be installed via:
+
+``` r
+conda install -c bioconda r-seamless
+```
+
 ## Usage
 
 ``` r
@@ -84,7 +97,7 @@ head(res$Deconvolution)[,1:4]
 ternaryPlot(res)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 # Venetoclax resistance
