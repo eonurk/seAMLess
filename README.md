@@ -46,6 +46,11 @@ download](https://anaconda.org/bioconda/r-seamless/badges/downloads.svg)
 conda install -c bioconda r-seamless
 ```
 
+Next, install the `seAMLessData` package inside of R, this will take a few minutes:
+``` r
+install.packages("seAMLessData", repos = "https://eonurk.github.io/drat/")
+```
+
 ## Usage
 
 ``` r
