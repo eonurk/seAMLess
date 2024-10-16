@@ -14,10 +14,10 @@ biocViews:
 Depends: R (>= 3.5.0)
 Imports: Biobase,
          ggplot2,
-         ggtern,
          randomForest
 Suggests: xbioc, 
          MuSiC,
+         ggtern,
          seAMLessData
 Additional_repositories: https://eonurk.github.io/drat/
 URL: https://github.com/eonurk/seAMLess
