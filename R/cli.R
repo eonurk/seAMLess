@@ -1,5 +1,4 @@
 library(optparse)
-
 cli <- function() {
   parser <- OptionParser()
 
@@ -19,8 +18,22 @@ cli <- function() {
   opt
 }
 
+main <- function(options) {
+  library(seAMLess)
+  library(xbioc)
+  source("R/seAMLess.R")
+
+  message(c("Reading ", options$counts))
+  counts <- read.table(options$counts)
+  message(counts)
+
+  message(c("Reading ", options$scRef))
+  load(file=options$scRef)
+  head(scRef)
+
+  res <- seAMLess(counts, scRef)
+  head(res$Deconvolution)[,1:4]
+}
+
 opt <- cli()
-
-message("Hello, world!")
-
-message(c(opt$counts," ", opt$scRef))
+main(opt)
