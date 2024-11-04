@@ -8,7 +8,7 @@
 #' @return List of deconvoluted cell type percentages and predicted drug resistances
 #' @export
 
-seAMLess <- function(mat, verbose = TRUE) {
+seAMLess <- function(mat, scRef = seAMLessData::scRef, verbose = TRUE) {
 
     requireNamespace("randomForest", quietly = T)
 
@@ -39,7 +39,7 @@ seAMLess <- function(mat, verbose = TRUE) {
 
     verbosePrint(">> Deconvoluting samples...")
     # MusiC deconvolution
-    deconv <- MuSiC::music_prop(bulk.eset = T.eset, sc.eset = seAMLessData::scRef,
+    deconv <- MuSiC::music_prop(bulk.eset = T.eset, sc.eset = scRef,
                                 clusters = 'label.new',
                                 markers = NULL, normalize = FALSE, samples = 'Sample',
                                 verbose = F)$Est.prop.weighted
