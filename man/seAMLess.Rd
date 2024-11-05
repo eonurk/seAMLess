@@ -6,10 +6,22 @@
 each sample into its cell types using a healthy BM reference, and
 calculates the sample's in vitro resistance to Venetoclax.}
 \usage{
-seAMLess(mat, verbose = TRUE)
+seAMLess(
+  mat,
+  scRef = seAMLessData::scRef,
+  scRef.sample = "Sample",
+  scRef.label = "label.new",
+  verbose = TRUE
+)
 }
 \arguments{
 \item{mat}{count matrix (genes by 1+samples).}
+
+\item{scRef}{reference matrix for single cell data}
+
+\item{scRef.sample}{column name for the samples in single cell reference}
+
+\item{scRef.label}{column name for the cell names in single cell reference}
 
 \item{verbose}{prints detailed messages}
 }

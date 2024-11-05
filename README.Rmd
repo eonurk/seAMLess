@@ -34,7 +34,7 @@ devtools::install_github("eonurk/seAMLess")
 
 `seAMLess` is also available in Bioconda and can be installed via:
 ```{r, eval=FALSE}
-conda install -c bioconda r-seamless
+conda install -c bioconda r-seamless 
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ library(seAMLess)
 library(xbioc) # required
 
 data(exampleTCGA)
-head(exampleTCGA)[,1:4]
+head(exampleTCGA)[, 1:4]
 ```
 
 
@@ -52,7 +52,7 @@ head(exampleTCGA)[,1:4]
 res <- seAMLess(exampleTCGA)
 
 # AML deconvolution
-head(res$Deconvolution)[,1:4]
+head(res$Deconvolution)[, 1:4]
 ```
 
 ```{r message=FALSE}

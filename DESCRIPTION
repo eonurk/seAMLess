@@ -8,13 +8,18 @@ Authors@R:
              family = "Karakaslar",
              role = c("aut", "cre"),
              email = "eonurkara@gmail.com"
+            ),
+    person(given = "Redmar van den Berg",
+            role = c("ctb")
             )
      )
 biocViews:
 Depends: R (>= 3.5.0)
 Imports: Biobase,
          ggplot2,
-         randomForest
+         randomForest,
+         optparse,
+         data.table
 Suggests: xbioc, 
          MuSiC,
          ggtern,
@@ -24,4 +29,4 @@ URL: https://github.com/eonurk/seAMLess
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
