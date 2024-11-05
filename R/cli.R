@@ -31,7 +31,9 @@ main <- function(options) {
   load(file=options$scRef)
 
   res <- seAMLess(counts, scRef)
-  head(res$Deconvolution)[,1:4]
+
+  write.table(res$Deconvolution, paste(options$output, "celltypes.tsv", sep=""), sep="\t", quote=FALSE)
+  write.table(res$Venetoclax.resistance, paste(options$output, "venetoclax.tsv", sep=""), sep="\t", quote=FALSE)
 }
 
 opt <- cli()
