@@ -39,7 +39,7 @@ main <- function(options) {
   verbosePrint(">> Writing output...")
   write.table(res$Deconvolution, paste(options$output, "celltypes.tsv", sep=""), sep="\t", quote=FALSE)
   write.table(res$Venetoclax.resistance, paste(options$output, "venetoclax.tsv", sep=""), sep="\t", quote=FALSE)
-  verbosePrint(">> Done...")
+  verbosePrint(">> Done")
 }
 
 opt <- cli()
