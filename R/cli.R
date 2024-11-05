@@ -4,6 +4,8 @@ cli <- function() {
 
   parser <- add_option(parser, "--counts", help="TSV file with gene counts")
   parser <- add_option(parser, "--scRef", help="RDA file with single cell reference counts")
+  parser <- add_option(parser, "--scRef_sample", help="Column names of the samples in the reference data")
+  parser <- add_option(parser, "--scRef_label", help="Column names of the cell types in the reference data")
   parser <- add_option(parser, "--output-prefix", default="", dest="output", help="Prefix for the output files")
 
   opt <- parse_args(parser)
@@ -16,7 +18,17 @@ cli <- function() {
     stop("--scRef is required")
   }
 
-  opt
+  if(is.null(opt$scRef_label)) {
+    warning("--scRef_label is not defined using default: label.new")
+    opt$scRef_label <- "label.new"
+  }
+
+  if(is.null(opt$scRef_sample)) {
+    warning("--scRef_sample is not defined using default: Sample")
+    opt$scRef_sample <- "Sample"
+  }
+
+  return(opt)
 }
 
 main <- function(options) {
@@ -28,8 +40,6 @@ main <- function(options) {
 
   verbosePrint(">> Loading libraries...")
   suppressMessages(library(xbioc))
-  source("R/seAMLess.R")
-
 
   verbosePrint(">> Reading ", options$counts, "...")
   counts <- read.table(options$counts)
@@ -37,7 +47,7 @@ main <- function(options) {
   verbosePrint(">> Reading ",options$scRef, "...")
   load(file=options$scRef)
 
-  res <- seAMLess(counts, scRef)
+  res <- seAMLess::seAMLess(counts, scRef, scRef.label = options$scRef_label, scRef.sample = options$scRef_sample)
 
   verbosePrint(">> Writing output...")
   write.table(res$Deconvolution, paste(options$output, "celltypes.tsv", sep=""), sep="\t", quote=FALSE)
