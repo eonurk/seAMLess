@@ -24,14 +24,19 @@ main <- function(options) {
   library(xbioc)
   source("R/seAMLess.R")
 
-  message(c("Reading ", options$counts))
+  verbose <- TRUE
+
+  # Printing function
+  verbosePrint <- verboseFn(verbose)
+  verbosePrint(">> Reading ", options$counts, "...")
   counts <- read.table(options$counts)
 
-  message(c("Reading ", options$scRef))
+  verbosePrint(">> Reading ",options$scRef, "...")
   load(file=options$scRef)
 
   res <- seAMLess(counts, scRef)
 
+  verbosePrint(">> Writing output...")
   write.table(res$Deconvolution, paste(options$output, "celltypes.tsv", sep=""), sep="\t", quote=FALSE)
   write.table(res$Venetoclax.resistance, paste(options$output, "venetoclax.tsv", sep=""), sep="\t", quote=FALSE)
 }
