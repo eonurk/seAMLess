@@ -4,6 +4,7 @@ cli <- function() {
 
   parser <- add_option(parser, "--counts", help="TSV file with gene counts")
   parser <- add_option(parser, "--scRef", help="RDA file with single cell reference counts")
+  parser <- add_option(parser, "--output-prefix", default="", dest="output", help="Prefix for the output files")
 
   opt <- parse_args(parser)
 
@@ -25,11 +26,9 @@ main <- function(options) {
 
   message(c("Reading ", options$counts))
   counts <- read.table(options$counts)
-  message(counts)
 
   message(c("Reading ", options$scRef))
   load(file=options$scRef)
-  head(scRef)
 
   res <- seAMLess(counts, scRef)
   head(res$Deconvolution)[,1:4]
