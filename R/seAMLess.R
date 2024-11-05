@@ -4,11 +4,14 @@
 #'
 #' @param mat count matrix (genes by 1+samples).
 #' @param verbose prints detailed messages
-#'
+#' @param scRef reference matrix for single cell data
+#' @param scRef.sample column name for the samples in single cell reference
+#' @param scRef.label column name for the cell names in single cell reference
 #' @return List of deconvoluted cell type percentages and predicted drug resistances
+#'
 #' @export
 
-seAMLess <- function(mat, scRef = seAMLessData::scRef, verbose = TRUE) {
+seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", scRef.label = "label.new", verbose = TRUE) {
 
     requireNamespace("randomForest", quietly = T)
 
@@ -40,8 +43,8 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, verbose = TRUE) {
     verbosePrint(">> Deconvoluting samples...")
     # MusiC deconvolution
     deconv <- MuSiC::music_prop(bulk.eset = T.eset, sc.eset = scRef,
-                                clusters = 'label.new',
-                                markers = NULL, normalize = FALSE, samples = 'Sample',
+                                clusters = scRef.label,
+                                markers = NULL, normalize = FALSE, samples = scRef.sample,
                                 verbose = F)$Est.prop.weighted
     verbosePrint(">> Deconvolution completed...")
 
