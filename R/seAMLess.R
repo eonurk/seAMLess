@@ -48,7 +48,6 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, verbose = TRUE) {
 
     verbosePrint(">> Predicting Venetoclax resistance...")
     veno.res <- stats::predict(seAMLess::venoModel, newdata = deconv)
-    verbosePrint(">> Done...")
     return(list(Deconvolution = deconv, Venetoclax.resistance = veno.res))
 
 }
