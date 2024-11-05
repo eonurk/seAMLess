@@ -20,14 +20,17 @@ cli <- function() {
 }
 
 main <- function(options) {
-  library(seAMLess)
-  library(xbioc)
-  source("R/seAMLess.R")
-
-  verbose <- TRUE
+  suppressMessages(library(seAMLess))
 
   # Printing function
+  verbose <- TRUE
   verbosePrint <- verboseFn(verbose)
+
+  verbosePrint(">> Loading libraries...")
+  suppressMessages(library(xbioc))
+  source("R/seAMLess.R")
+
+
   verbosePrint(">> Reading ", options$counts, "...")
   counts <- read.table(options$counts)
 
