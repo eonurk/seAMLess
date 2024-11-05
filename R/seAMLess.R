@@ -21,6 +21,7 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, verbose = TRUE) {
     # If ensembl ids are provided
     if(grepl("ENSG", rownames(mat)[1], fixed = TRUE)){
 
+        verbosePrint(">> Converting human ensembl ids to symbols...")
         # ens to symbol map
         ens2gene <- seAMLess::grch38
         m <- match(rownames(mat), ens2gene$ensgene)
@@ -31,7 +32,6 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, verbose = TRUE) {
         mat <- mat[!removed.genes,]
         rownames(mat) <- mapped.genes[!removed.genes]
 
-        verbosePrint(">> Human ensembl ids are converted to symbols...")
     }
 
     # make mat suitable for MuSiC
