@@ -12,7 +12,6 @@
 #' @export
 
 seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", scRef.label = "label.new", verbose = TRUE) {
-
     requireNamespace("randomForest", quietly = T)
 
     # Printing function
@@ -22,8 +21,7 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", 
     mat <- wrangleMat(mat)
 
     # If ensembl ids are provided
-    if(grepl("ENSG", rownames(mat)[1], fixed = TRUE)){
-
+    if (grepl("ENSG", rownames(mat)[1], fixed = TRUE)) {
         verbosePrint(">> Converting human ensembl ids to symbols...")
         # ens to symbol map
         ens2gene <- seAMLess::grch38
@@ -32,9 +30,8 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", 
         # duplicated name/NA/mitochondrial genes
         removed.genes <- duplicated(mapped.genes) | is.na(mapped.genes) | grepl("^MT", mapped.genes)
 
-        mat <- mat[!removed.genes,]
+        mat <- mat[!removed.genes, ]
         rownames(mat) <- mapped.genes[!removed.genes]
-
     }
 
     # make mat suitable for MuSiC
@@ -42,15 +39,16 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", 
 
     verbosePrint(">> Deconvoluting samples...")
     # MusiC deconvolution
-    deconv <- MuSiC::music_prop(bulk.eset = T.eset, sc.eset = scRef,
-                                clusters = scRef.label,
-                                markers = NULL, normalize = FALSE, samples = scRef.sample,
-                                verbose = F)$Est.prop.weighted
+    deconv <- MuSiC::music_prop(
+        bulk.eset = T.eset, sc.eset = scRef,
+        clusters = scRef.label,
+        markers = NULL, normalize = FALSE, samples = scRef.sample,
+        verbose = F
+    )$Est.prop.weighted
     verbosePrint(">> Deconvolution completed...")
 
 
     verbosePrint(">> Predicting Venetoclax resistance...")
     veno.res <- stats::predict(seAMLess::venoModel, newdata = deconv)
     return(list(Deconvolution = deconv, Venetoclax.resistance = veno.res))
-
 }

@@ -1,5 +1,4 @@
-seAMLess
-================
+# seAMLess
 
 ## Overview
 
@@ -17,9 +16,10 @@ atlas.
 version](https://www.r-pkg.org/badges/version/seAMLess)](https://cran.r-project.org/package=seAMLess)
 [![CRAN
 download](https://cranlogs.r-pkg.org/badges/seAMLess?color=orange)](https://cran.r-project.org/package=seAMLess?color=orange)
+
 <!-- badges: end -->
 
-``` r
+```r
 # CRAN mirror
 install.packages("seAMLess")
 ```
@@ -28,7 +28,7 @@ install.packages("seAMLess")
 
 To get bug fix and use a feature from the development version:
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("eonurk/seAMLess")
 ```
@@ -42,18 +42,19 @@ download](https://anaconda.org/bioconda/r-seamless/badges/downloads.svg)
 
 `seAMLess` is also available in Bioconda and can be installed via:
 
-``` r
+```r
 conda install -c bioconda r-seamless
 ```
 
 Next, install the `seAMLessData` package inside of R, this will take a few minutes:
-``` r
+
+```r
 install.packages("seAMLessData", repos = "https://eonurk.github.io/drat/")
 ```
 
 ## Usage
 
-``` r
+```r
 library(seAMLess)
 library(xbioc) # required
 
@@ -69,7 +70,7 @@ head(exampleTCGA)[,1:4]
     ## 5 ENSG00000000460.15              372             1211              519
     ## 6 ENSG00000000938.11            14712              405             6076
 
-``` r
+```r
 # Now run the function
 res <- seAMLess(exampleTCGA)
 ```
@@ -84,7 +85,7 @@ res <- seAMLess(exampleTCGA)
 
     ## >> Done...
 
-``` r
+```r
 # AML deconvolution
 head(res$Deconvolution)[,1:4]
 ```
@@ -97,19 +98,19 @@ head(res$Deconvolution)[,1:4]
     ## TCGA.AB.2891.03A 0.0000000 0.6189622 0.018645484 0.01384012
     ## TCGA.AB.2872.03A 0.0000000 0.9950150 0.000000000 0.00000000
 
-``` r
+```r
 # Create ternary plot
 ternaryPlot(res)
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-``` r
+```r
 # Venetoclax resistance
 res$Venetoclax.resistance[1:4]
 ```
 
-    ## TCGA.AB.2856.03A TCGA.AB.2849.03A TCGA.AB.2971.03A TCGA.AB.2930.03A 
+    ## TCGA.AB.2856.03A TCGA.AB.2849.03A TCGA.AB.2971.03A TCGA.AB.2930.03A
     ##        0.5070113        0.3242576        0.6678995        0.3305996
 
 ## Contribution
@@ -118,8 +119,8 @@ You can send pull requests to make your contributions.
 
 ## Author
 
--   [E Onur Karakaslar](https://eonurk.github.io/)
+- [E Onur Karakaslar](https://eonurk.com)
 
 ## License
 
--   GNU General Public License v3.0
+- GNU General Public License v3.0

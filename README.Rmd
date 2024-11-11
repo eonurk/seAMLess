@@ -71,7 +71,7 @@ You can send pull requests to make your contributions.
 
 ## Author
 
-- [E Onur Karakaslar](https://eonurk.github.io/)
+- [E Onur Karakaslar](https://eonurk.com)
 
 ## License
 

@@ -4,31 +4,27 @@
 #' on bulk RNA-seq data.
 #'
 #' @name cli
-#' @return List of parsed command line options
-#' @export
-#' @examples
-#' \dontrun{
-#' # Run from command line:
-#' Rscript cli.R --counts counts.tsv --scRef reference.rda --output-prefix results_
-#' }
-library(optparse)
-
-
-#' Parse command line arguments
 #' @return List of validated command line options
+#' @export
 cli <- function() {
-  parser <- OptionParser()
+  parser <- optparse::OptionParser()
 
-  parser <- add_option(parser, "--counts", help = "CSV file with gene counts")
-  parser <- add_option(parser, "--scRef", help = "RDA file with single cell reference counts")
-  parser <- add_option(parser, "--scRef_sample", default = "Sample",
-                      help = "Column name for samples in reference data (default: Sample)")
-  parser <- add_option(parser, "--scRef_label", default = "label.new",
-                      help = "Column name for cell types in reference data (default: label.new)")
-  parser <- add_option(parser, "--output-prefix", default = "", dest = "output",
-                      help = "Prefix for output files")
+  parser <- optparse::add_option(parser, "--counts", help = "CSV file with gene counts")
+  parser <- optparse::add_option(parser, "--scRef", help = "RDA file with single cell reference counts")
+  parser <- optparse::add_option(parser, "--scRef_sample",
+    default = "Sample",
+    help = "Column name for samples in reference data (default: Sample)"
+  )
+  parser <- optparse::add_option(parser, "--scRef_label",
+    default = "label.new",
+    help = "Column name for cell types in reference data (default: label.new)"
+  )
+  parser <- optparse::add_option(parser, "--output-prefix",
+    default = "", dest = "output",
+    help = "Prefix for output files"
+  )
 
-  opt <- parse_args(parser)
+  opt <- optparse::parse_args(parser)
 
   # Check for missing options
   if (is.null(opt$counts)) {
@@ -51,27 +47,27 @@ cli <- function() {
 }
 
 main <- function(options) {
-
   # Printing function
   verbose <- TRUE
   verbosePrint <- seAMLess::verboseFn(verbose)
 
   verbosePrint(">> Loading libraries...")
-  suppressMessages(library(xbioc))
-  suppressMessages(library(seAMLess))
+  requireNamespace("Biobase")
 
   verbosePrint(">> Reading ", options$counts, "...")
   counts <- data.table::fread(options$counts, data.table = FALSE)
 
   verbosePrint(">> Reading ", options$scRef, "...")
-  load(file = options$scRef)
-  
+  scRef_env <- new.env()
+  load(file = options$scRef, envir = scRef_env)
+  scRef <- scRef_env$scRef # Replace with actual object name
+
   verbosePrint(">> Running seAMLess...")
-  res <- seAMLess(counts, scRef, scRef.label = options$scRef_label, scRef.sample = options$scRef_sample)
+  res <- seAMLess::seAMLess(counts, scRef, scRef.label = options$scRef_label, scRef.sample = options$scRef_sample)
 
   verbosePrint(">> Writing output...")
-  write.table(res$Deconvolution, paste(options$output, "celltypes.tsv", sep = ""), sep = "\t", quote = FALSE)
-  write.table(res$Venetoclax.resistance, paste(options$output, "venetoclax.tsv", sep = ""), sep = "\t", quote = FALSE)
+  utils::write.table(res$Deconvolution, paste(options$output, "celltypes.tsv", sep = ""), sep = "\t", quote = FALSE)
+  utils::write.table(res$Venetoclax.resistance, paste(options$output, "venetoclax.tsv", sep = ""), sep = "\t", quote = FALSE)
   verbosePrint(">> Done")
 }
 
