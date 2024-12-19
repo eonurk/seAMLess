@@ -31,11 +31,14 @@ seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", 
         m <- match(rownames(mat), ens2gene$ensgene)
         mapped.genes <- ens2gene$symbol[m]
         # duplicated name/NA/mitochondrial genes
-        removed.genes <- duplicated(mapped.genes) | is.na(mapped.genes) | grepl("^MT", mapped.genes)
+        removed.genes <- duplicated(mapped.genes) | is.na(mapped.genes)
+        # removed.genes <- duplicated(mapped.genes) | is.na(mapped.genes) | grepl("^MT", mapped.genes)
 
         mat <- mat[!removed.genes, ]
         rownames(mat) <- mapped.genes[!removed.genes]
     }
+
+    verbosePrint(">> Common genes with the reference: ", sum(rownames(mat) %in% rownames(scRef@assayData$exprs)))
 
     # make mat suitable for MuSiC
     T.eset <- Biobase::ExpressionSet(assayData = as.matrix(mat))
