@@ -52,7 +52,7 @@ main <- function(options) {
   verbosePrint <- seAMLess::verboseFn(verbose)
 
   verbosePrint(">> Loading libraries...")
-  requireNamespace("Biobase")
+  library(Biobase)
 
   verbosePrint(">> Reading ", options$counts, "...")
   counts <- data.table::fread(options$counts, data.table = FALSE)

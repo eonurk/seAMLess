@@ -12,10 +12,13 @@
 #' @export
 
 seAMLess <- function(mat, scRef = seAMLessData::scRef, scRef.sample = "Sample", scRef.label = "label.new", verbose = TRUE) {
-    requireNamespace("randomForest", quietly = T)
-
     # Printing function
     verbosePrint <- verboseFn(verbose)
+    verbosePrint(">> Loading libraries...")
+
+    requireNamespace("randomForest", quietly = T)
+    requireNamespace("Biobase",  quietly = T)
+    requireNamespace("MuSiC",  quietly = T)
 
     # wrangle count matrix
     mat <- wrangleMat(mat)
